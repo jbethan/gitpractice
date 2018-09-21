@@ -1,0 +1,182 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>Gluten-Free Korean Home Cooking</h1>
+			</div>
+			<div id="navigation">
+				<nav>
+					<a href="#beef">Beef Bulgogi</a>
+					<a href="#chicken">Sweet & Spicy Chicken</a>
+					<a href="#potatoes">Potatoes Jorim</a>
+					<a href="#cucumbers">Spicy Cucumbers</a>
+					<a href="#spinach">Seasoned Spinach</a>
+					<a href="#radish">Spicy Radishes</a>
+				</nav>
+			</div>
+			<div id="beef">
+					<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+				<h2><img src="https://i.imgur.com/aT6FWPt.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<i class="material-icons" style="font-size:20px;color:19334d;">stars</i>
+					Beef Bulgogi
+				</h2>
+				<ul>
+					<li>2 pounds thinly sliced beef rib eye or top sirloin</li>
+					<li>3 scallions cut into 2-inch pieces</li>
+					<li>1 small onion thinly sliced</li>
+					<li>5 tablespoons gluten-free Tamari</li>
+					<li>2 tablespoons sugar or honey</li>
+					<li>2 tablespoons rice vinegar</li>
+					<li>2 tablespoons minced garlic</li>
+					<li>2 tablespoons sesame oil</li>
+					<li>2 teaspoons sesame seeds</li>
+				</ul>
+				<ol>
+					<li>Mix all the marinade ingredients in a large bowl. </li>
+					<li>If using packaged pre-sliced meat, separate the slices. Add the meat and vegetables to the marinade and toss gently to combine everything well. </li>
+					<li>Marinate the meat for about an hour.</li>
+					<li>Preheat and lightly oil the pan with sesame oil before adding the meat. Do not crowd the skillet. </li>
+				</ol>
+			</div>
+			<div id="chicken">
+				<h2><i class="material-icons" style="font-size:20px;color:19334d;">stars</i>
+					Sweet & Spicy Chicken
+				</h2>
+				<ul>
+					<img src="https://i.imgur.com/Sszmmvc.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<li>1 pound boneless skinless chicken thigh and/or breast</li>
+					<li>1/2 cup milk optional</li>
+					<li>1/4 teaspoon salt</li>
+					<li>pinch pepper</li>
+					<li>1/2 teaspoon minced garlic</li>
+					<li>1/2 teaspoon minced ginger</li>
+					<li>1/3 cup potato starch or corn starchl</li>
+					<li>oil for deep frying</li>
+					 --Sauce--
+					<li>1 tablespoons gluten-free Tamari</li>
+					<li>3 tablespoons corn syrup or honey</li>
+					<li>3 tablespoons rice vinegar</li>
+					<li>1 tablespoon gluten-free gochujang chili paste</li>
+					<li>2 tablespoons brown sugar</li>
+					<li>1 teaspoon minced garlic</li>
+					<li>1 teaspoon minced ginger</li>
+					<li>2 teaspoons sesame oil</li>
+					<li>pinch pepper</li>
+				</ul>
+				<ol>
+					<li>Soak the chicken pieces in milk for at least 2 hours in the fridge. This step is optional.</li>
+					<li>Drain thoroughly. Remove any visible fat. Cut the chicken into bite sized pieces. Mix with the salt, pepper, rice wine (if you didn’t use milk) garlic, and ginger. Let it stand for 20 to 30 minutes. </li>
+					<li>In a pan, add all the sauce ingredients, and stir well. Bring it to a boil. When it starts to bubble, reduce the heat to medium low, and simmer until it thickens slightly, about 3 to 4 minutes. Turn the heat off.</li>
+					<li>Add the potato (or corn) starch to the chicken, and mix well to coat evenly</li>
+					<li>Pour about 1 inch of oil in to a heavy bottom pan. When the oil is sufficiently hot (350°F or starts smoking), drop the chicken pieces in one at a time. Fry them in two batches. Overcrowding will drop the oil temperature too quickly. Cook until light golden brown, 1 to 2 minutes. Remove and set them on a wire rack or a paper towel-lined plate.</li>
+					<li>Heat the sauce over medium low heat. Add the chicken and stir well until the chicken pieces are evenly coated.</li>				
+				</ol>
+			</div>
+			<div id="potatoes">
+				<h2><i class="material-icons" style="font-size:20px;color:19334d;">stars</i>
+					Gamja Jorim (Braised Potatoes)</h2>
+				<ul>
+					<img src="https://i.imgur.com/W9nfR91.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<li>3 medium white potatoes</li>
+					<li>5 tablespoons gluten-free Tamari</li>
+					<li>2 tablespoons sugar or honey</li>
+					<li>2 tablespoons rice vinegar</li>
+					<li>2 tablespoons minced garlic</li>
+					<li>2 tablespoons sesame oil</li>
+					<li>2 teaspoons sesame seeds</li>
+					<li>1/2 cup water</li>
+				</ul>
+				<ol>
+					<li>Peel and cut potatoes into about 1-inch cubes. </li>
+					<li>In a small bowl, combine the soy sauce, sugar, rice wine, garlic, corn syrup, pepper and water. </li>
+					<li>In a small pot (preferably non-stick), sauté the potatoes and carrots in vegetable oil over medium heat for 4 – 5 minutes.</li>
+					<li>Add the sauce mix and bring it to a boil over high heat. Cover, and Reduce the heat to medium and cook until the potatoes are tender (about 7 to 8 minutes – less if you cut potatoes smaller). </li>
+					<li>Continue to boil (uncover this time to make it shiny) for additional 3 – 4 minutes until the sauce is reduced to a thick sauce just enough to cover the bottom of the pan. Stir in the sesame oil and sesame seeds. </li>			
+			</div>
+			<div id="cucumbers">
+			<h2><i class="material-icons" style="font-size:20px;color:19334d;">stars</i>
+					Oi Muchim (Spicy Cucumbers)</h2>
+				<ul>
+					<img src="https://i.imgur.com/1NBAFdz.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<li>1 Korean cucumber or 2 Kirby pickling cucumbers</li>
+					<li>1 teaspoon salt</li>
+					<li>1/2 tablespoon gluten-free kochujang</li>
+					<li>1 teaspoon rice vinegar</li>
+					<li>1/2 teaspoon minced garlic</li>
+					<li>1/2 teaspoon sugar</li>
+					<li>2 tablespoons sesame oil</li>
+					<li>2 teaspoons sesame seeds</li>
+				</ul>
+				<ol>
+					<li>Thinly slice the cucumber (1/8 to 1/4-inch thick). Toss gently with salt and set aside for about 15 minutes.</li>
+					<li>Drain excess liquid. Avoid squeezing them because they will bruise. Mix well with all of the remaining ingredients. </li>
+			</div>
+			<div id="spinach">
+				<h2><i class="material-icons" style="font-size:20px;color:19334d;">cloud</i>
+					Sigeumchi Namul (Seasoned Spinach)</h2>
+					<ul>
+					<img src="https://i.imgur.com/7FWjklw.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<li>1 bunch of spinach</li>
+					<li>2 teaspoons gluten-free Tamari</li>
+					<li>1/2 teaspoon sugar</li>
+					<li>1 teaspoon minced garlic</li>
+					<li>1 teaspoon sesame oil</li>
+					<li>1 teaspoon sesame seeds</li>
+				</ul>
+				<ol>
+					<li>Trim off the roots from the spinach. Wash thoroughly until there is no sand in the water. Blanch the spinach in salted boiling water until wilted, 30 – 40 seconds. </li>
+					<li>Quickly remove the spinach from the pot and shock in cold water to stop the cooking. Drain and gently squeeze out excess water. Cut into 3-inch lengths.</li>
+					<liAdd the remaining ingredients and mix everything well by hand. It will take about 10 minutes for the flavor of the seasonings to seep into the spinach.</li>
+			</div>
+			<div id="radish">
+			<h2><i class="material-icons" style="font-size:20px;color:19334d;">stars</i>
+					Mu Saengchae (Spicy Radishes)</h2>
+			<ul>
+					<img src="https://i.imgur.com/GeD2VKn.jpg" 
+						style="float:right; width:500px; margin-right:150px">
+					<li>1 pound Korean daikon radish</li>
+					<li>1 teaspoon salt</li>
+					<li>1/2 tablespoon gluten-free kochujang</li>
+					<li>1 teaspoon fish sauce</li>
+					<li>1/2 teaspoon minced garlic</li>
+					<li>1/2 teaspoon sugar</li>
+					<li>2 tablespoons sesame oil</li>
+					<li>2 teaspoons sesame seeds</li>
+				</ul>
+				<ol>
+					<li>Thinly slice the cucumber (1/8 to 1/4-inch thick). Toss gently with salt and set aside for about 15 minutesClean the radish by scrubbing with a brush and/or scratching off the stubborn impurities with a small knife. Peel the  skin only if necessary. Cut into match sticks (about 1/8 to 1/4-inch thick).li>
+					<li>Drain excess liquid. Mix well with all of the remaining ingredients. </li>
+			</div>
+			<div id="footer">
+				&copy; 2018 Bethany Johnson
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+    		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        		document.getElementById("myBtn").style.display = "block";
+    		} else {
+        		document.getElementById("myBtn").style.display = "none";
+    		}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+    		document.body.scrollTop = 0; // For Safari
+    		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
+
+		</script>
+	</body>
