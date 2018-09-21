@@ -74,7 +74,7 @@
 
 	h2 {
 		font-size: 30px;
-	    font-family: "Palantino Linotype", Palatino, serif;
+	    font-family: 'Montserrat', sans-serif;
 	    font-style: oblique;
 	    font-weight: bolder;
 	    vertical-align: bottom;
