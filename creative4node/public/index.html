@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Set a Date with The Doctor</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Monserrat|Patua+One" rel="stylesheet">
+    <script src="/js/format-google-calendar.min.js"></script>
+  </head>
+  <body>
+    <div class="title">
+        <a href="https://fontmeme.com/doctor-who-font/"><img id="title" src="https://fontmeme.com/permalink/181102/9e46837824589dbfd1dc90ca2c595c6a.png" alt="doctor-who-font" border="0"></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear1" src="images/noun_Gear_1031071 (1).png"/></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear2" src="images/noun_Gears_1031057 (1).png"/></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear3" src="images/noun_Gear_1031064 (1).png"/></a>
+    </div>
+    <div class="column side">
+        <form id="form1">
+          Enter Name:   <input type="text" id="nameField" value="">
+          <br>
+          <br>
+          Enter Date: (YYYY-MM-DD)   <input type="text" id="dateField" value="">
+          <br>
+          <br>
+          Start Time:   <input type="text" id="startField" value="">
+          <br>
+          <br>
+          Location:   
+          <select name="location">
+            <option value="Gallifrey">Gallifrey</option>
+            <option value="London">London</option>
+            <option value="New Earth">New Earth</option>
+            <option value="Singing Towers of Darillium">Singing Towers of Darillium</option>
+            <option value="The Library">The Library</option>
+            <option value="Raxacoricofallapatorius">Raxacoricofallapatorius</option>
+            <option value="Skaro">Skaro</option>
+            <option value="Cardiff">Cardiff</option>
+          </select>
+          <br>
+          <br>
+          <button id="nameButton" onclick="makeApiCall();">Submit</button>
+          <button id="clearBtn1" onclick="document.getElementById('nameField').value = ''">Clear Results</button>
+        </form>
+        <a title="[Tardis by Arancha R from the Noun Project]" href="https://imgur.com/wmTFwOi"><img id="tardis" src="images/55174-200.png"/></a>
+    </div>
+    <div class="column middle">
+        <iframe src="https://calendar.google.com/calendar/embed?src=cs260nodedummy%40gmail.com&ctz=America%2FDenver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
+    <script> 
+      $("#nameButton").click(function(e){
+            var eventName = $('#nameField').val();
+            var date = $('#dateField').val();
+            var userDate = $('#dateField').val()+"T"+$('#startField').val();
+      });
+
+     // Google api console clientID and apiKey 
+
+      var clientId = '603466367227-tloikpsm2aq9aqnjcmjuhjp3mj5lloba.apps.googleusercontent.co';
+      var apiKey = 'AIzaSyBNFoap47-8w9huW1d-HDF8TyhPkF5HTlE';
+      
+      // enter the scope of current project (this API must be turned on in the Google console)
+      var scopes = 'https://www.googleapis.com/auth/calendar';
+      
+      var twoHoursLater = new date (now.getTime() + (2 * 1000 * 60 * 60));
+      twoHoursLater = twoHoursLater.toISOString();
+
+      
+      // OAuth2 functions
+       function handleClientLoad() {
+             gapi.client.setApiKey(apiKey);
+             window.setTimeout(checkAuth, 1);
+          }
+      
+      //To authenticate
+      function checkAuth() {
+        gapi.auth.authorize({ client_id: clientId, scope: scopes, immediate: true }, handleAuthResult);
+            }
+      
+      // This is the resource we will pass while calling api function
+      var resource = {
+        "summary": eventName,
+        "start": {
+            "dateTime": userDate
+        },
+        "start.timeZone": "America/Denver",
+        "end": {
+            "dateTime": twoHoursLater
+        },
+        "end.timeZone": "America/Denver",
+        "description":"We are organizing events",
+        "location":"US",
+        "attendees":[
+        {
+                "email":"attendee1@gmail.com",
+                "displayName":"Jhon",
+                "organizer":true,
+                "self":false,
+                "resource":false,
+                "optional":false,
+                "responseStatus":"needsAction",
+                "comment":"This is my demo event",
+                "additionalGuests":3
+                
+        },
+        {    
+            "email":"attendee2@gmail.com",
+                "displayName":"Marry",
+                "organizer":true,
+                "self":false,
+                "resource":false,
+                "optional":false,
+                "responseStatus":"needsAction",
+                "comment":"This is an official event",
+                "additionalGuests":3
+        }
+        ],
+    };
+      
+      function makeApiCall(){
+        gapi.client.load('calendar', 'v3', function () { // load the calendar api (version 3)
+          var request = gapi.client.calendar.events.insert
+          ({
+              'calendarId': 'https://calendar.google.com/calendar/embed?src=cs260nodedummy%40gmail.com&ctz=America%2FDenver', 
+              // calendar ID which id of Google Calendar where you are creating events. this can be copied from your Google Calendar user view.
+
+              "resource": resource 	// above resource will be passed here
+          });                
+        });
+      }
+      
+
+    </script>
+  </body>
+</html>
