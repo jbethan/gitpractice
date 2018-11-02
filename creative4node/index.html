@@ -1,146 +1,122 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Calendar API Quickstart</title>
+    <title>Set a Date with The Doctor</title>
     <meta charset="utf-8" />
-     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Monserrat|Patua+One" rel="stylesheet">
+    <script src="/js/format-google-calendar.min.js"></script>
   </head>
   <body>
-    <p>Google Calendar API Quickstart</p>
-    <a href="https://imgur.com/wmTFwOi"><img src="https://i.imgur.com/wmTFwOi.png" title="source: imgur.com" color=white /></a>
-    <iframe src="https://calendar.google.com/calendar/embed?src=cs260nodedummy%40gmail.com&ctz=America%2FDenver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <div class="title">
+        <a href="https://fontmeme.com/doctor-who-font/"><img id="title" src="https://fontmeme.com/permalink/181102/9e46837824589dbfd1dc90ca2c595c6a.png" alt="doctor-who-font" border="0"></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear1" src="images/noun_Gear_1031071 (1).png"/></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear2" src="images/noun_Gears_1031057 (1).png"/></a>
+        <a title="Gears by Lluisa Iborra from the Noun Project" href="https://imgur.com/BVLEW1I"><img id="Gear3" src="images/noun_Gear_1031064 (1).png"/></a>
+    </div>
+    <div class="column side">
+        <form id="form1">
+          Enter Name:   <input type="text" id="nameField" value="">
+          <br>
+          <br>
+          Enter Date: (YYYY-MM-DD)   <input type="text" id="dateField" value="">
+          <br>
+          <br>
+          Start Time:   <input type="text" id="startField" value="">
+          <br>
+          <br>
+          End Time:   <input type="text" id="endField" value="">
+          <br>
+          <br>
+          Location:   <input type="text" id="locationField" value="">
+          <br>
+          <br>
+          <button id="nameButton" onclick="makeApiCall();">Submit</button>
+          <button id="clearBtn1" onclick="document.getElementById('nameField').value = ''">Clear Results</button>
+        </form>
+        <a title="[Tardis by Arancha R from the Noun Project]" href="https://imgur.com/wmTFwOi"><img id="tardis" src="images/55174-200.png"/></a>
+    </div>
+    <div class="column middle">
+        <iframe src="https://calendar.google.com/calendar/embed?src=cs260nodedummy%40gmail.com&ctz=America%2FDenver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
     <script> 
+      $("#nameButton").click(function(e){
+            var eventName = $('#nameField').val();
+            var userDate = $('#dateField').val()+"T"+$('#startField').val();
+      });
 
-    </script>
+     // Google api console clientID and apiKey 
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
-
-    <pre id="content"></pre>
-
-    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '730317514365-6qcokg31116a5ittc6fpbo1nlgn5ftuk.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyApsZISNkmygB7A0t8iAQuLNPQQU6suihA';
-
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
-
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
-
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
-
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
-        });
-      }
-
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
-          listUpcomingEvents();
-        } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
-        }
-      }
-
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
-
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-      /**
-       * Print the summary and start datetime/date of the next ten events in
-       * the authorized user's calendar. If no events are found an
-       * appropriate message is printed.
-       */
-      function listUpcomingEvents() {
-        gapi.client.calendar.events.list({
-          'calendarId': 'primary',
-          'timeMin': (new Date()).toISOString(),
-          'showDeleted': false,
-          'singleEvents': true,
-          'maxResults': 10,
-          'orderBy': 'startTime'
-        }).then(function(response) {
-          var events = response.result.items;
-          appendPre('Upcoming events:');
-
-          if (events.length > 0) {
-            for (i = 0; i < events.length; i++) {
-              var event = events[i];
-              var when = event.start.dateTime;
-              if (!when) {
-                when = event.start.date;
-              }
-              appendPre(event.summary + ' (' + when + ')')
-            }
-          } else {
-            appendPre('No upcoming events found.');
+      var clientId = '603466367227-tloikpsm2aq9aqnjcmjuhjp3mj5lloba.apps.googleusercontent.co';
+      var apiKey = 'AIzaSyBNFoap47-8w9huW1d-HDF8TyhPkF5HTlE';
+      
+      // enter the scope of current project (this API must be turned on in the Google console)
+      var scopes = 'https://www.googleapis.com/auth/calendar';
+      
+      
+      // OAuth2 functions
+       function handleClientLoad() {
+             gapi.client.setApiKey(apiKey);
+             window.setTimeout(checkAuth, 1);
           }
+      
+      //To authenticate
+      function checkAuth() {
+        gapi.auth.authorize({ client_id: clientId, scope: scopes, immediate: true }, handleAuthResult);
+            }
+      
+      // This is the resource we will pass while calling api function
+      var resource = {
+        "summary": eventName,
+        "start": {
+            "dateTime": userDate
+        },
+        "end": {
+            "dateTime": twoHoursLater
+        },
+        "description":"We are organizing events",
+        "location":"US",
+        "attendees":[
+        {
+                "email":"attendee1@gmail.com",
+                "displayName":"Jhon",
+                "organizer":true,
+                "self":false,
+                "resource":false,
+                "optional":false,
+                "responseStatus":"needsAction",
+                "comment":"This is my demo event",
+                "additionalGuests":3
+                
+        },
+        {    
+            "email":"attendee2@gmail.com",
+                "displayName":"Marry",
+                "organizer":true,
+                "self":false,
+                "resource":false,
+                "optional":false,
+                "responseStatus":"needsAction",
+                "comment":"This is an official event",
+                "additionalGuests":3
+        }
+        ],
+    };
+      
+      function makeApiCall(){
+        gapi.client.load('calendar', 'v3', function () { // load the calendar api (version 3)
+          var request = gapi.client.calendar.events.insert
+          ({
+              'calendarId': 'https://calendar.google.com/calendar/embed?src=cs260nodedummy%40gmail.com&ctz=America%2FDenver', 
+              // calendar ID which id of Google Calendar where you are creating events. this can be copied from your Google Calendar user view.
+
+              "resource": resource 	// above resource will be passed here
+          });                
         });
       }
+      
 
-    </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
   </body>
 </html>
