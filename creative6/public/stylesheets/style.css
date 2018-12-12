@@ -89,7 +89,7 @@ div[id=vetInfo]{
     margin-left: 5%;
 }
 table {
-    width: 84%;
+    width: 1302px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -100,26 +100,14 @@ table, tr, td {
     border-collapse: collapse;
 }
 td {
-    width: 12%;
+    width: 186px;
     text-align: center;
 }
 div[id=column2]{
     font-weight: lighter;
 }
 
-
 /*Style for User.html*/
- input[type=text]{
-    width:30%;
-    height: 20px;
-}
-input[type=email]{
-    width:30%;
-}
-input[id=notes]{
-    width:30%;
-    height:50px;
-}
 span[class=radio]{
     font-weight:lighter;
     padding: 15px;
@@ -128,4 +116,3 @@ span[class=vaccineTxt]{
     font-style: italic;
     font-weight: lighter;
 }
-
