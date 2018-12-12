@@ -1,0 +1,179 @@
+<!doctype html>
+<html ng-app="myApp"> 
+    
+<head>
+    <title>User Login and Sessions</title>
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Lato|Voces" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <style>
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 20%;
+        }
+        * {
+          box-sizing: border-box;
+        }
+       .column {
+          float: left;
+          width: 30%;
+          padding: 10px;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          padding: 0px;
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+</head>
+        
+<body>  
+    <img src="https://i.imgur.com/f6cup1m.png"/ alt="PetPal" class="center">
+    <div ng-controller="myController">
+        <br>
+        <a id="logoutLink" href="/logout">Logout</a>
+        <a id="editLink" href="/user">Edit Pet Profile</a>
+        <br>
+    <hr>
+    <span id="indexMsg">
+        <%= msg %>
+    </span>
+    <hr>
+    </div>
+    <section>
+    <div id="petInfo">
+        <p>Pet Info</p>
+        <div class="row" id="petName">
+            <div class="column" id="column1">
+                Pet Name
+            </div>
+            <div class="column" id="column2">
+                <%= petName %>
+            </div>
+        </div>
+        <div class="row" id="genderText">
+            <div class="column" id="column1">
+                Gender
+            </div>
+            <div class="column" id="column2">
+               <%= gender %>
+            </div>
+        </div>
+        <div class="row" id="speciesText">
+            <div class="column" id="column1">
+                 Species
+            </div>
+            <div class="column" id="column2">
+               <%= species %>
+            </div>
+        </div>
+        <div class="row" id="breedText">
+            <div class="column" id="column1">
+                 Breed
+            </div>
+            <div class="column" id="column2">
+                <%= breed %>
+            </div>
+        </div>
+        <div class="row" id="colorText">
+            <div class="column" id="column1">
+                 Color
+            </div>
+            <div class="column" id="column2">
+                <%= color %>
+            </div>
+        </div>
+        <div class="row" id="ageText">
+            <div class="column" id="column1">
+                 Age 
+            </div>
+            <div class="column" id="column2">
+                <%= age %>
+            </div>
+        </div>
+    </div>
+    
+    <div id="vetInfo">
+        <p>Vet Info</p>
+        <div class="row" id="vetName">
+            <div class="column" id="column1">
+                Vet Name
+            </div>
+            <div class="column" id="column2">
+                <%= vetName %>
+            </div>
+        </div>
+        <div class="row" id="clinicText">
+            <div class="column" id="column1">
+                Clinic Name
+            </div>
+            <div class="column" id="column2">
+               <%= clinicName %>
+            </div>
+        </div>
+        <div class="row" id="addressText">
+            <div class="column" id="column1">
+                 Address
+            </div>
+            <div class="column" id="column2">
+               <%= addressLine1 %>
+               <%= addressLine2 %>
+            </div>
+        </div>
+        <div class="row" id="contactText">
+            <div class="column" id="column1">
+                 Contact Info
+            </div>
+            <div class="column" id="column2">
+                <%= contact %>
+            </div>
+        </div>
+        <div class="row" id="lastVisitText">
+            <div class="column" id="column1">
+                 Last Visit on
+            </div>
+            <div class="column" id="column2">
+                <%= lastVisit %>
+            </div>
+        </div>
+        <div class="row" id="notesText">
+            <div class="column" id="column1">
+                 Notes from Vest
+            </div>
+            <div class="column" id="column2">
+                <%= notes %>
+            </div>
+        </div>
+        <br>
+    </div>
+    </section>
+    <hr>
+    <table id="vaccines">
+        <tr>
+            <td><p>Vaccine Name</p></td>
+            <td><%= vaccine1 %></td>
+            <td><%= vaccine2 %></td>
+            <td><%= vaccine3 %></td>
+            <td><%= vaccine4 %></td>
+            <td><%= vaccine5 %></td>
+            <td><%= vaccine6 %></td>
+        </tr>
+        <tr>
+            <td><p>Date Received</p></td>
+            <td><%= vaccineDate1 %></td>
+            <td><%= vaccineDate2 %></td>
+            <td><%= vaccineDate3 %></td>
+            <td><%= vaccineDate4 %></td>
+            <td><%= vaccineDate5 %></td>
+            <td><%= vaccineDate6 %></td>
+        </tr>
+    </table>
+    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+    <script src="/javascripts/my_app.js"></script>
+</body>
+      
+</html>
