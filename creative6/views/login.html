@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    
+<head>
+    <title>User Login and Sessions</title>
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Lato|Voces" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <style>
+        div[class=form-container]{text-align:center}
+    </style>
+</head>
+        
+<body>  
+    <div class="form-container">
+        <img src="https://i.imgur.com/f6cup1m.png"/>
+        <form method="POST" action="/login" style="margin-top:15px">
+            <label>Username:</label>
+            <input type="text" id="username" name="username"><br>
+            <label>Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" id="login" value="Login" style="margin-top:20px">
+        </form><br/>
+        New to the site?<a id="signUpLink" href="/signup">Register here!</a>
+        <hr>
+        <span id="loginMsg">
+            <%= msg %>
+        </span>
+    </div>
+</body>
+        
+</html>
