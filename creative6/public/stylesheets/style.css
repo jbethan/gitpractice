@@ -120,6 +120,10 @@ input[id=notes]{
     width:30%;
     height:50px;
 }
+span[class=radio]{
+    font-weight:lighter;
+    padding: 15px;
+}
 span[class=vaccineTxt]{
     font-style: italic;
     font-weight: lighter;
