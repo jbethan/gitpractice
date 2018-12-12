@@ -1,0 +1,164 @@
+<!doctype html>
+<html ng-app="myApp">
+    
+<head>
+    <title>User Login and Sessions</title>
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Lato|Voces" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <style>
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 15%;
+        }
+        
+    </style>
+</head>
+        
+<body>  
+    <img src="https://i.imgur.com/f6cup1m.png"/ alt="PetPal" class="center">
+    <div class="form-container" ng-controller="myController">
+        <p id="sectionTitle" class="form-header">User Profile</p>
+        <form method="POST" action="/user/update">
+            <div id="userinfo">
+                <label>Username:</label><br>
+                <input type="text" id="username" name="username" ng-model="user.username" disabled><br>
+                <label>Email:</label><br>
+                <input type="email" id="email" name="email" ng-model="user.email"><br>
+            </div>
+            
+            <br>
+            <p>Pet Profile</p>
+            <div id="petinfo">
+                <label>Pet Name:</label><br>
+                <input type="text" id="petName" name="petName" ng-model="user.petName"><br>  
+                <label>Gender:</label><br>
+                <input type="radio" id="gender" name="gender" ng-model="user.gender" value="Male" checked> Male 
+                <input type="radio" id="gender" name="gender" ng-model="user.gender" value="Female"> Female<br>
+                <label>Species:</label><br>
+                <input type="radio" id="dogSpecies" name="species" ng-model="user.species" value="Dog"> Dog 
+                <input type="radio" id="catSpecies" name="species" ng-model="user.species" value="Cat"> Cat<br>
+                <label>Breed:</label><br>
+                <input type="text" id="breed" name="breed" ng-model="user.breed"><br>  
+                <label>Color:</label><br>
+                <input type="text" id="color" name="color" ng-model="user.color"><br> 
+                <label>Age:</label><br>
+                <input type="text" id="age" name="age" ng-model="user.age"><br>  
+                <input type="submit" id="save" value="Save">
+            </div>
+            <br>
+            
+            <p>Health Info</p>
+            <div id="vetinfo">
+                <label>Vet Name:</label><br>
+                <input type="text" id="vetName" name="vetName" ng-model="user.vetName"><br>  
+                <label>Clinic Name:</label><br>
+                <input type="text" id="clinicName" name="clinicName" ng-model="user.clinicName"><br>
+                <label>Address:</label><br>
+                <input type="text" id="addressLine1" name="addressLine1" ng-model="user.addressLine1"><br>
+                <input type="text" id="addressLine2" name="addressLine2" ng-model="user.addressLine2"><br>
+                <label>Contact Info:</label><br>
+                <input type="text" id="contact" name="contact" ng-model="user.contact"><br>  
+                <label>Date of Last Visit:</label><br>
+                <input type="date" id="lastVisit" name="lastVisit" ng-model="user.lastVisit"><br> 
+                <label>Notes from Vet:</label><br>
+                <input type="text" id="notes" name="notes" ng-model="user.notes"><br>
+            </div>
+            <br>
+            <div id="vaccines">
+            <p>Vaccinations</p>
+                Vaccine 1: 
+                <input type="text" id="vaccine1" name="vaccine1" ng-model="user.vaccine1">  
+                <input type="date" id="vaccineDate1" name="vaccineDate1" ng-model="user.vaccineDate1">
+                <span class="vaccineTxt" id="vaccineTxt1"></span>
+                <br> 
+                <br>
+                
+                Vaccine 2:
+                <input type="text" id="vaccine2" name="vaccine2" ng-model="user.vaccine2">  
+                <input type="date" id="vaccineDate2" name="vaccineDate2" ng-model="user.vaccineDate2">
+                <span class="vaccineTxt" id="vaccineTxt2"></span>
+                <br>
+                <br>
+                
+                Vaccine 3:
+                <input type="text" id="vaccine3" name="vaccine3" ng-model="user.vaccine3"> 
+                <input type="date" id="vaccineDate3" name="vaccineDate3" ng-model="user.vaccineDate3">
+                <span class="vaccineTxt" id="vaccineTxt3"></span>
+                <br>
+                <br>
+                
+                Vaccine 4:
+                <input type="text" id="vaccine4" name="vaccine4" ng-model="user.vaccine4"> 
+                <input type="date" id="vaccineDate4" name="vaccineDate4" ng-model="user.vaccineDate4">
+                <span class="vaccineTxt" id="vaccineTxt4"></span>
+                <br>
+                <br>
+                
+                Vaccine 5: 
+                <input type="text" id="vaccine5" name="vaccine5" ng-model="user.vaccine5"> 
+                <input type="date" id="vaccineDate5" name="vaccineDate5" ng-model="user.vaccineDate5">
+                <span class="vaccineTxt" id="vaccineTxt5"></span>
+                <br>
+                <br>
+                
+                Vaccine 6: 
+                <input type="text" id="vaccine6" name="vaccine6" ng-model="user.vaccine6">  
+                <input type="date" id="vaccineDate6" name="vaccineDate6" ng-model="user.vaccineDate6">
+                <span class="vaccineTxt" id="vaccineTxt6"></span>
+                <br>
+                <br>
+            </div>
+            <input type="submit" id="save" value="Save">
+        </form>
+    </div>
+    <form method="POST" action="/user/delete">
+        <input type="submit" id="delete" value="Delete User">
+    </form>
+    <hr>
+    <span id="userMsg">
+    <%= msg %>
+    </span>
+    <script>
+        var x = document.getElementById("dogSpecies");
+        x.addEventListener("click", dogFunction);
+        function dogFunction() {
+            document.getElementById("dogSpecies").innerHTML = "Dog";
+            document.getElementById("vaccine1").value = "Rabies - 1yr";
+            document.getElementById("vaccineTxt1").innerHTML = "Recommended: Annual Booster Required";
+            document.getElementById("vaccine2").value = "Rabies - 3yr";
+            document.getElementById("vaccineTxt2").innerHTML = "Recommended: Addition Booster every 3 years";
+            document.getElementById("vaccine3").value = "Distemper";
+            document.getElementById("vaccineTxt3").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine4").value = "Parvovirus";
+            document.getElementById("vaccineTxt4").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine5").value = "CAV-1 (Canine Hepatitis)";
+            document.getElementById("vaccineTxt5").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine6").value = "CAV-2 (Kennel Cough)";
+            document.getElementById("vaccineTxt6").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+        }
+        var y = document.getElementById("catSpecies");
+        y.addEventListener("click", catFunction);
+        function catFunction() {
+            document.getElementsByName("catSpecies").value = "Cat";
+            document.getElementById("vaccine1").value = "Rabies - 1yr";
+            document.getElementById("vaccineTxt1").innerHTML = "Recommended: Annual Booster Required (3 yr option offer by some vets)";
+            document.getElementById("vaccine2").value = "Feline Distemper";
+            document.getElementById("vaccineTxt2").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine3").value = "Feline Herpesvirus";
+            document.getElementById("vaccineTxt3").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine4").value = "Calicivirus";
+            document.getElementById("vaccineTxt4").innerHTML = "Recommended: 1 yr after initial series. Every 3 yrs after.";
+            document.getElementById("vaccine5").value = "FELV(Feline Leukemia Virus)";
+            document.getElementById("vaccineTxt5").innerHTML = "OPTIONAL - Every 1-2 yr depending on risk level.";
+            document.getElementById("vaccine6").value = "Bordetella";
+            document.getElementById("vaccineTxt6").innerHTML = "OPTIONAL - Annual Booster.";
+        }
+    </script>
+    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+    <script src="/javascripts/my_app.js"></script>
+    <a id="homeLink" href="/">Home</a>
+</body>
+
+</html>
