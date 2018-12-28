@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurants!</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="javascripts/restaurants.js"></script>
+</head>
+
+<body ng-app="restaurants" ng-controller="MainCtrl">
+<h1>Best Places to Eat in Provo</h1>
+<div>
+    <button id="myBtn" onclick="window.location='http://18.222.213.41:4000/add.html'">Add Restaurant</button>
+</div>
+<div class="rows">
+    <ul class="polaroids" ng-repeat="restaurant in restaurants | orderBy: ['-upVotes','Name']">
+    <li>
+        <a href={{restaurant.ImageURL}} title={{restaurant.Name}} >
+            <button id="xbtn" ng-click="delete(restaurant)">X</button><br>
+            <img src={{restaurant.ImageURL}} alt ={{restaurant.Name}}><br>
+            <p id="name">{{restaurant.Name}}</p>
+            <p id="address">{{restaurant.Address}}</p>
+            <button class="vote" ng-click="upvote(restaurant)">{{restaurant.upVotes}} Likes </button> 
+            <button class="vote" ng-click="downvote(restaurant)"> Dislikes {{restaurant.downVotes}}</button>
+            </a><br>
+    </li>
+</div>
+<script type="text/javascript">
+    window.onload = function() {document.getElementById("myBtn").style.display = "block";};
+</script>
+</body>
+</html>
