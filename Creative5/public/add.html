@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Restaurant</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="javascripts/restaurants.js"></script>
+</head>
+
+<body ng-app="restaurants" ng-controller="MainCtrl">
+<h1>Best Places to Eat in Provo</h1>
+<div class="form-container">
+    <form ng-submit="addRestaurant()">
+        <label for="name">Name: </label><input type="text" ng-model="name" placeholder="Name"><br>
+        <label for="address">Address: </label><input type="text" ng-model="address" placeholder="Address"><br>
+        <label for="imageURL">Image URL: </label><input type="text" ng-model="imageURL" placeholder="ImageURL"><br><br>
+        <button type="submit" onclick="getElementById('confirm').innerHTML='Restaurant Added'">Submit Restaurant</button>
+    </form>
+</div>
+<div id="confirm"></div>
+<button id="myBtn" onclick="window.location='http://18.222.213.41:4000/'">Return to Main Page</button>
+<script type="text/javascript">
+    window.onload = function() {document.getElementById("myBtn").style.display = "block";};
+</script>
+</body>
+</html>
